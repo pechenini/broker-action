@@ -1,0 +1,7 @@
+services:
+  BrokerAction\Framework\Dispatcher:
+    autowire: true
+    public: true
+  BrokerAction\Framework\Router:
+    autowire: true
+    public: true

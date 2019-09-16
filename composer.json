@@ -1,0 +1,19 @@
+{
+  "name": "pechenin/broker-action",
+  "type": "library",
+  "description": "",
+  "authors": [
+    {
+      "name": "InvolvedPanda",
+      "email": "m.pechenin99@gmail.com"
+    }
+  ],
+  "require": {
+    "symfony/framework-bundle": "^4.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "BrokerAction\\": "./"
+    }
+  }
+}
