@@ -26,7 +26,7 @@ class Router
         $path = $message->path->fullPath();
         $topicRouting = $this->params->get('broker_action');
         $mapping = $topicRouting[0]['mapping'];
-        $mapping = array_fill_keys(array_column($mapping, 'path'), array_values($mapping));
+        $mapping = array_combine(array_column($mapping, 'path'), array_values($mapping));
 
         $className = isset($mapping[$path]) ? $mapping[$path]['action'] : null;
         if (!$className) {
