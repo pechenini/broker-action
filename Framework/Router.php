@@ -28,7 +28,7 @@ class Router
         $mapping = $topicRouting[0]['mapping'];
         $mapping = array_fill_keys(array_column($mapping, 'path'), array_values($mapping));
 
-        $className = isset($mapping[$path]) ? $mapping[$path] : null;
+        $className = isset($mapping[$path]) ? $mapping[$path]['action'] : null;
         if (!$className) {
             throw new \Exception("Action was not found for $path");
         }
