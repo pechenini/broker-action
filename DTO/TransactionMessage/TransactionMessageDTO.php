@@ -27,7 +27,7 @@ class TransactionMessageDTO
     public function toJson()
     {
         return json_encode([
-            'path' => $this->path->fullPath(),
+            'path' => $this->path->getPath(),
             'payload' => $this->payload->getData()
         ]);
     }
@@ -35,8 +35,7 @@ class TransactionMessageDTO
     public static function fromJson(string $message)
     {
         $data = json_decode($message, true);
-        $path = Path::fromString($data['path']);
         $payload = new Payload($data['payload']);
-        return new static($path, $payload);
+        return new static($data['path'], $payload);
     }
 }
