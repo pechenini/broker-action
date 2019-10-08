@@ -23,7 +23,7 @@ class Router
 
     public function route(TransactionMessageDTO $message)
     {
-        $path = $message->path->fullPath();
+        $path = $message->path->getPath();
         $topicRouting = $this->params->get('broker_action');
         $mapping = $topicRouting[0]['mapping'];
         $mapping = array_combine(array_column($mapping, 'path'), array_values($mapping));
