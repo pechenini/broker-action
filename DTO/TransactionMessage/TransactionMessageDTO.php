@@ -36,6 +36,6 @@ class TransactionMessageDTO
     {
         $data = json_decode($message, true);
         $payload = new Payload($data['payload']);
-        return new static($data['path'], $payload);
+        return new static(new Path($data['path']), $payload);
     }
 }
