@@ -13,8 +13,8 @@ Example of broker_action.yaml:
 ```
 broker_action:
   mapping:
-      - { path: 'fee.internal.outbound.create', action: 'App\Actions\CreateManualFeeAction' }
-      - { path: 'fee.internal.inbound.create', action: 'App\Actions\CreateManualFeeAction' }
+      - { path: 'some.path', action: 'App\Actions\SomeAction' }
+      - { path: 'some.path1', action: 'App\Actions\SomeAnotherAction' }
 ```
  
  ## Action creation
@@ -26,7 +26,7 @@ use BrokerAction\DTO\ActionResponse;
 use BrokerAction\DTO\Error;
 use BrokerAction\Framework\ActionInterface;
 
-class CreateManualFeeAction implements ActionInterface
+class SomeAction implements ActionInterface
 {
     public function run($data): ActionResponse
     {
@@ -62,10 +62,9 @@ class FooClass {
     
     public function bar() {
         $json = '{
-                     "path": "fee.internal.outbound.create",
+                     "path": "some.path",
                      "payload": {
-                         "debtor_account_id": 1,
-                         "product_id": 10
+                         "acc_id": 1
                      }
                  }';
         $message = TransactionMessageDTO::fromJson($json);
